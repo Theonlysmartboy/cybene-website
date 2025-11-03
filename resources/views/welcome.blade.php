@@ -46,6 +46,11 @@
             color: var(--cybene-orange) !important;
         }
 
+        .logo-image{
+            width:70px;
+            height: 70px;
+        }
+
         /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--cybene-blue), var(--cybene-pink));
@@ -146,7 +151,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Cybene<span style="color: var(--cybene-green);">.</span></a>
+            <a class="navbar-brand fw-bold" href="#"> <img class="logo-image" src="{{ asset('img/logo.png') }}" alt="Cybene"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -162,47 +167,94 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
+    <section id="hero" class="text-white text-center d-flex align-items-center justify-content-center"
+        style="background: linear-gradient(rgba(51, 102, 153, 0.8), rgba(51, 102, 153, 0.8)),
+                url('{{ asset('img/banner.jpeg') }}') center/cover no-repeat; height: 90vh;">
         <div class="container">
-            <h1>Innovating Business Through Technology</h1>
-            <p>We craft intelligent POS systems, cloud solutions, and custom software that empower modern businesses to
-                grow, adapt, and thrive.</p>
-            <a href="#contact" class="btn btn-cybene-primary btn-lg px-4">Get in Touch</a>
+            <h1 class="display-4 fw-bold">Cybene Technologies</h1>
+            <p class="lead mb-4">Innovative Software & Technology Solutions for Businesses</p>
+            <a href="#products" class="btn btn-lg btn-warning text-uppercase fw-semibold px-4">Explore Our Products</a>
         </div>
     </section>
 
     <!-- Products -->
-    <section id="products" class="products text-center">
-        <div class="container">
-            <h2 class="mb-5">Our Products</h2>
+    <section id="products" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5 text-primary">Our Products & Solutions</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="product-card">
-                        <div class="product-icon">💼</div>
-                        <h5>Cypos POS</h5>
-                        <p>A robust and user-friendly Point of Sale system for retail businesses — manage sales,
-                            inventory, and reporting effortlessly.</p>
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary fw-semibold">CyPOS</h5>
+                            <p class="card-text">Point of Sale software for retail and hospitality businesses, providing
+                                efficient billing and inventory management.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-card">
-                        <div class="product-icon">💊</div>
-                        <h5>Cypos Pharma</h5>
-                        <p>A smart Pharmacy Management and POS system for dispensing, inventory, and financial tracking
-                            — built for accuracy and compliance.</p>
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-success fw-semibold">CyPOS Pharma</h5>
+                            <p class="card-text">Pharmacy & Chemist Point of Sale system for managing prescriptions,
+                                inventory, and customer billing.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-card">
-                        <div class="product-icon">🏨</div>
-                        <h5>Cypos Hotel</h5>
-                        <p>An integrated Hotel & Restaurant POS and MIS solution that simplifies operations, billing,
-                            reservations, and reporting in real-time.</p>
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning fw-semibold">CyPOS Hotel</h5>
+                            <p class="card-text">Hotel & Restaurant POS and Management Information System designed for
+                                seamless guest and order management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger fw-semibold">SmartPay</h5>
+                            <p class="card-text">Employee Payroll Management Software for automating salary
+                                calculations, statutory deductions, and payslip generation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-info fw-semibold">VMS</h5>
+                            <p class="card-text">Web-based Vehicle Sales and Inventory Management System for car dealers
+                                and fleet companies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary fw-semibold">TIMS</h5>
+                            <p class="card-text">Fleet & Inventory Management Software built to handle transport
+                                logistics and asset tracking efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-pink fw-semibold">CMS</h5>
+                            <p class="card-text">Member’s Club Management Software for handling subscriptions, payments,
+                                and membership data seamlessly.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Services -->
     <section id="services" class="services text-center">
