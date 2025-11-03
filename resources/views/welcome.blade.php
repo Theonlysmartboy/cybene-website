@@ -8,10 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         h1,
@@ -23,7 +25,6 @@
             font-weight: 600;
         }
 
-        /* Brand Colors */
         :root {
             --cybene-blue: #336699;
             --cybene-green: #66cc99;
@@ -35,83 +36,99 @@
         /* Navbar */
         .navbar {
             background-color: var(--cybene-blue);
+            transition: all 0.3s ease;
         }
 
         .navbar a {
             color: #fff !important;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .navbar a:hover {
+        .navbar a:hover,
+        .navbar .nav-link.active {
             color: var(--cybene-orange) !important;
         }
 
-        .logo-image{
-            width:70px;
+        .logo-image {
+            width: 70px;
             height: 70px;
         }
 
         /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--cybene-blue), var(--cybene-pink));
+        #hero {
+            background: linear-gradient(rgba(51, 102, 153, 0.8), rgba(51, 102, 153, 0.8)),
+                url('{{ asset('img/banner.jpeg') }}') center/cover no-repeat;
             color: white;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 130px 20px 120px;
+            padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        /* Hexagon styling */
+        .hex {
+            position: relative;
+            width: 200px;
+            height: 115px;
+            background: var(--cybene-light);
+            margin: 60px auto;
+            color: #333;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        .hex:before,
+        .hex:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
         }
 
-        .btn-cybene-primary {
-            background-color: var(--cybene-orange);
-            border: none;
-            color: white;
-            font-weight: 600;
+        .hex:before {
+            bottom: 100%;
+            border-bottom: 58px solid var(--cybene-light);
         }
 
-        .btn-cybene-primary:hover {
-            background-color: var(--cybene-green);
+        .hex:after {
+            top: 100%;
+            border-top: 58px solid var(--cybene-light);
         }
 
-        /* Products */
-        .products {
-            padding: 80px 20px;
-            background-color: var(--cybene-light);
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            padding: 30px;
-            transition: 0.3s ease;
-        }
-
-        .product-card:hover {
+        .hex:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: var(--cybene-blue);
+            color: white;
         }
 
-        .product-icon {
-            font-size: 2.5rem;
+        .hex:hover:before {
+            border-bottom-color: var(--cybene-blue);
+        }
+
+        .hex:hover:after {
+            border-top-color: var(--cybene-blue);
+        }
+
+        .hex i {
+            font-size: 2rem;
+            margin-top: 15px;
+            color: var(--cybene-orange);
+        }
+
+        .hex:hover i {
+            color: white;
+        }
+
+        /* Products & Services common */
+        .section-title {
             color: var(--cybene-blue);
-            margin-bottom: 10px;
-        }
-
-        /* Services */
-        .services {
-            padding: 80px 20px;
-        }
-
-        .services h2 {
-            color: var(--cybene-blue);
+            margin-bottom: 50px;
         }
 
         /* Contact */
@@ -151,13 +168,15 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"> <img class="logo-image" src="{{ asset('img/logo.png') }}" alt="Cybene"></a>
+            <a class="navbar-brand fw-bold" href="#">
+                <img class="logo-image" src="{{ asset('img/logo.png') }}" alt="Cybene">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -167,9 +186,7 @@
     </nav>
 
     <!-- Hero -->
-    <section id="hero" class="text-white text-center d-flex align-items-center justify-content-center"
-        style="background: linear-gradient(rgba(51, 102, 153, 0.8), rgba(51, 102, 153, 0.8)),
-                url('{{ asset('img/banner.jpeg') }}') center/cover no-repeat; height: 90vh;">
+    <section id="hero">
         <div class="container">
             <h1 class="display-4 fw-bold">Cybene Technologies</h1>
             <p class="lead mb-4">Innovative Software & Technology Solutions for Businesses</p>
@@ -178,115 +195,117 @@
     </section>
 
     <!-- Products -->
-    <section id="products" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5 text-primary">Our Products & Solutions</h2>
-            <div class="row g-4">
+    <section id="products" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="section-title fw-bold">Our Products & Solutions</h2>
+            <div class="row justify-content-center g-4">
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-primary fw-semibold">CyPOS</h5>
-                            <p class="card-text">Point of Sale software for retail and hospitality businesses, providing
-                                efficient billing and inventory management.</p>
-                        </div>
+                    <div class="hex">
+                        <i class="bi bi-cart-check"></i>
+                        <h5>CyPOS</h5>
+                        <p>Point of Sale for retail and hospitality.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-success fw-semibold">CyPOS Pharma</h5>
-                            <p class="card-text">Pharmacy & Chemist Point of Sale system for managing prescriptions,
-                                inventory, and customer billing.</p>
-                        </div>
+                    <div class="hex">
+                        <i class="bi bi-capsule"></i>
+                        <h5>CyPOS Pharma</h5>
+                        <p>Pharmacy & Chemist POS software.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning fw-semibold">CyPOS Hotel</h5>
-                            <p class="card-text">Hotel & Restaurant POS and Management Information System designed for
-                                seamless guest and order management.</p>
-                        </div>
+                    <div class="hex">
+                        <i class="bi bi-shop"></i>
+                        <h5>CyPOS Hotel</h5>
+                        <p>Hotel & Restaurant POS and MIS.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="row g-4 mt-4">
+            <div class="row justify-content-center g-4 mt-4">
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-danger fw-semibold">SmartPay</h5>
-                            <p class="card-text">Employee Payroll Management Software for automating salary
-                                calculations, statutory deductions, and payslip generation.</p>
-                        </div>
+                    <div class="hex">
+                        <i class="bi bi-people-fill"></i>
+                        <h5>SmartPay</h5>
+                        <p>Employee payroll management software.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-info fw-semibold">VMS</h5>
-                            <p class="card-text">Web-based Vehicle Sales and Inventory Management System for car dealers
-                                and fleet companies.</p>
-                        </div>
+                    <div class="hex">
+                        <i class="bi bi-truck-front"></i>
+                        <h5>VMS</h5>
+                        <p>Vehicle Sales & Inventory Management.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-secondary fw-semibold">TIMS</h5>
-                            <p class="card-text">Fleet & Inventory Management Software built to handle transport
-                                logistics and asset tracking efficiently.</p>
-                        </div>
+                    <div class="hex">
+                        <i class="bi bi-geo-alt"></i>
+                        <h5>TIMS</h5>
+                        <p>Fleet & Transport Inventory Software.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="row g-4 mt-4">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-pink fw-semibold">CMS</h5>
-                            <p class="card-text">Member’s Club Management Software for handling subscriptions, payments,
-                                and membership data seamlessly.</p>
-                        </div>
+            <div class="row justify-content-center g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="hex">
+                        <i class="bi bi-person-badge"></i>
+                        <h5>CMS</h5>
+                        <p>Member’s Club Management Software.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hex">
+                        <i class="bi bi-code-slash"></i>
+                        <h5>Custom Software</h5>
+                        <p>Tailored web, mobile, and desktop apps.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- Services -->
-    <section id="services" class="services text-center">
+    <section id="services" class="text-center py-5">
         <div class="container">
-            <h2 class="mb-5">Custom Software Development</h2>
-            <p class="lead mx-auto mb-5" style="max-width: 700px;">
-                Beyond our Cypos suite, we design and build custom software for web, mobile, and desktop — transforming
-                your business ideas into fully functional digital products.
-            </p>
+            <h2 class="section-title fw-bold">Our Technical Services</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="product-card">
-                        <div class="product-icon">🌐</div>
-                        <h5>Web Applications</h5>
-                        <p>Modern, scalable web apps built with performance and security in mind — tailored to your
-                            business needs.</p>
+                    <div class="hex">
+                        <i class="bi bi-camera-video"></i>
+                        <h5>CCTV Installation</h5>
+                        <p>Professional CCTV installation & maintenance.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-card">
-                        <div class="product-icon">📱</div>
-                        <h5>Mobile Apps</h5>
-                        <p>Cross-platform mobile applications for Android and iOS that deliver seamless user experiences
-                            and engagement.</p>
+                    <div class="hex">
+                        <i class="bi bi-router"></i>
+                        <h5>Networking</h5>
+                        <p>Structured cabling, IP telephony & internet setup.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-card">
-                        <div class="product-icon">🖥️</div>
-                        <h5>Desktop Software</h5>
-                        <p>Robust and efficient desktop applications — from business management tools to custom data
-                            systems.</p>
+                    <div class="hex">
+                        <i class="bi bi-printer"></i>
+                        <h5>Fiscal Devices</h5>
+                        <p>KRA-approved ETR, ESD & fiscal printer setup.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="hex">
+                        <i class="bi bi-clock-history"></i>
+                        <h5>Access Control</h5>
+                        <p>Time attendance & door access systems.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hex">
+                        <i class="bi bi-pc-display"></i>
+                        <h5>Hardware Sales</h5>
+                        <p>Computers, printers, UPS & peripherals.</p>
                     </div>
                 </div>
             </div>
@@ -297,8 +316,7 @@
     <section id="contact" class="contact text-center">
         <div class="container">
             <h2 class="mb-4">Let's Work Together</h2>
-            <p class="mb-5">Get in touch to learn more about our Cypos products or to discuss a custom software
-                solution for your business.</p>
+            <p class="mb-5">Get in touch to learn more about our Cypos products or custom software solutions.</p>
             <form class="row g-3 justify-content-center">
                 <div class="col-md-5">
                     <input type="text" class="form-control" placeholder="Your Name" required>
@@ -324,6 +342,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) link.classList.add('active');
+            });
+        });
     </script>
 </body>
 
