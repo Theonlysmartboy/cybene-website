@@ -1,0 +1,139 @@
+body {
+    font-family: "Inter", sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+:root {
+    --cybene-blue: #336699;
+    --cybene-green: #66cc99;
+    --cybene-orange: #ff9933;
+    --cybene-pink: #ff6699;
+    --cybene-light: #f9fafb;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--cybene-blue);
+    transition: all 0.3s ease;
+}
+
+.navbar a {
+    color: #fff !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar .nav-link.active {
+    color: var(--cybene-orange) !important;
+}
+
+.logo-image {
+    width: 70px;
+    height: 70px;
+}
+
+/* Hero */
+#hero {
+    background: linear-gradient(
+            rgba(51, 102, 153, 0.8),
+            rgba(51, 102, 153, 0.8)
+        ),
+        url("../img/banner.jpeg") center/cover no-repeat;
+    color: white;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Hexagon styling */
+.hex {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: var(--hex-color);
+    margin: 58px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.hex:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hex .inner {
+    padding: 20px;
+}
+
+.hex h5 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.hex p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hex {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+/* Products & Services common */
+.section-title {
+    color: var(--cybene-blue);
+    margin-bottom: 50px;
+}
+
+/* Contact */
+.contact {
+    background-color: var(--cybene-blue);
+    color: white;
+    padding: 80px 20px;
+}
+
+.contact input,
+.contact textarea {
+    border-radius: 8px;
+}
+
+.contact button {
+    background-color: var(--cybene-orange);
+    border: none;
+}
+
+.contact button:hover {
+    background-color: var(--cybene-green);
+}
+
+/* Footer */
+footer {
+    background-color: #224466;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}

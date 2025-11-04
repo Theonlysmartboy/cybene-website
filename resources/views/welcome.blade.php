@@ -9,158 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
-
-        :root {
-            --cybene-blue: #336699;
-            --cybene-green: #66cc99;
-            --cybene-orange: #ff9933;
-            --cybene-pink: #ff6699;
-            --cybene-light: #f9fafb;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: var(--cybene-blue);
-            transition: all 0.3s ease;
-        }
-
-        .navbar a {
-            color: #fff !important;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar a:hover,
-        .navbar .nav-link.active {
-            color: var(--cybene-orange) !important;
-        }
-
-        .logo-image {
-            width: 70px;
-            height: 70px;
-        }
-
-        /* Hero */
-        #hero {
-            background: linear-gradient(rgba(51, 102, 153, 0.8), rgba(51, 102, 153, 0.8)),
-                url('{{ asset('img/banner.jpeg') }}') center/cover no-repeat;
-            color: white;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        /* Hexagon styling */
-        .hex {
-            position: relative;
-            width: 200px;
-            height: 115px;
-            background: var(--cybene-light);
-            margin: 60px auto;
-            color: #333;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        .hex:before,
-        .hex:after {
-            content: "";
-            position: absolute;
-            width: 0;
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-        }
-
-        .hex:before {
-            bottom: 100%;
-            border-bottom: 58px solid var(--cybene-light);
-        }
-
-        .hex:after {
-            top: 100%;
-            border-top: 58px solid var(--cybene-light);
-        }
-
-        .hex:hover {
-            transform: translateY(-5px);
-            background: var(--cybene-blue);
-            color: white;
-        }
-
-        .hex:hover:before {
-            border-bottom-color: var(--cybene-blue);
-        }
-
-        .hex:hover:after {
-            border-top-color: var(--cybene-blue);
-        }
-
-        .hex i {
-            font-size: 2rem;
-            margin-top: 15px;
-            color: var(--cybene-orange);
-        }
-
-        .hex:hover i {
-            color: white;
-        }
-
-        /* Products & Services common */
-        .section-title {
-            color: var(--cybene-blue);
-            margin-bottom: 50px;
-        }
-
-        /* Contact */
-        .contact {
-            background-color: var(--cybene-blue);
-            color: white;
-            padding: 80px 20px;
-        }
-
-        .contact input,
-        .contact textarea {
-            border-radius: 8px;
-        }
-
-        .contact button {
-            background-color: var(--cybene-orange);
-            border: none;
-        }
-
-        .contact button:hover {
-            background-color: var(--cybene-green);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #224466;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -195,70 +44,64 @@
     </section>
 
     <!-- Products -->
-    <section id="products" class="py-5 bg-light text-center">
+    <section id="products" class="py-5 text-center" style="background:#f9fafb;">
         <div class="container">
-            <h2 class="section-title fw-bold">Our Products & Solutions</h2>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-cart-check"></i>
+            <h2 class="fw-bold mb-5" style="color:#336699;">Our Products & Services</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+
+                <!-- CyPOS -->
+                <div class="hex" style="--hex-color:#ff9933;">
+                    <div class="inner">
                         <h5>CyPOS</h5>
-                        <p>Point of Sale for retail and hospitality.</p>
+                        <p>Point of Sale Software</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-capsule"></i>
+
+                <!-- CyPOS Pharma -->
+                <div class="hex" style="--hex-color:#ff6699;">
+                    <div class="inner">
                         <h5>CyPOS Pharma</h5>
-                        <p>Pharmacy & Chemist POS software.</p>
+                        <p>Pharmacy & Chemist POS</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-shop"></i>
-                        <h5>CyPOS Hotel</h5>
-                        <p>Hotel & Restaurant POS and MIS.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row justify-content-center g-4 mt-4">
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-people-fill"></i>
+                <!-- SmartPay -->
+                <div class="hex" style="--hex-color:#66cc99;">
+                    <div class="inner">
                         <h5>SmartPay</h5>
-                        <p>Employee payroll management software.</p>
+                        <p>Employee Payroll Software</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-truck-front"></i>
-                        <h5>VMS</h5>
-                        <p>Vehicle Sales & Inventory Management.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-geo-alt"></i>
-                        <h5>TIMS</h5>
-                        <p>Fleet & Transport Inventory Software.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row justify-content-center g-4 mt-4">
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-person-badge"></i>
-                        <h5>CMS</h5>
-                        <p>Member’s Club Management Software.</p>
+                <!-- VMS -->
+                <div class="hex" style="--hex-color:#cc3399;">
+                    <div class="inner">
+                        <h5>VMS</h5>
+                        <p>Vehicle Sales & Inventory</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="hex">
-                        <i class="bi bi-code-slash"></i>
+
+                <!-- TIMS -->
+                <div class="hex" style="--hex-color:#336699;">
+                    <div class="inner">
+                        <h5>TIMS</h5>
+                        <p>Fleet & Inventory Software</p>
+                    </div>
+                </div>
+
+                <!-- CMS -->
+                <div class="hex" style="--hex-color:#ff6666;">
+                    <div class="inner">
+                        <h5>CMS</h5>
+                        <p>Member’s Club Software</p>
+                    </div>
+                </div>
+
+                <!-- Custom Software -->
+                <div class="hex" style="--hex-color:#99cc33;">
+                    <div class="inner">
                         <h5>Custom Software</h5>
-                        <p>Tailored web, mobile, and desktop apps.</p>
+                        <p>Web, Mobile & Desktop Apps</p>
                     </div>
                 </div>
             </div>
@@ -268,7 +111,68 @@
     <!-- Services -->
     <section id="services" class="text-center py-5">
         <div class="container">
-            <h2 class="section-title fw-bold">Our Technical Services</h2>
+            <h2 class="fw-bold mb-5" style="color:#336699;">Our Technical Services</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+
+                <!-- CyPOS -->
+                <div class="hex" style="--hex-color:#ff9933;">
+                    <div class="inner">
+                        <h5>CyPOS</h5>
+                        <p>Point of Sale Software</p>
+                    </div>
+                </div>
+
+                <!-- CyPOS Pharma -->
+                <div class="hex" style="--hex-color:#ff6699;">
+                    <div class="inner">
+                        <h5>CyPOS Pharma</h5>
+                        <p>Pharmacy & Chemist POS</p>
+                    </div>
+                </div>
+
+                <!-- SmartPay -->
+                <div class="hex" style="--hex-color:#66cc99;">
+                    <div class="inner">
+                        <h5>SmartPay</h5>
+                        <p>Employee Payroll Software</p>
+                    </div>
+                </div>
+
+                <!-- VMS -->
+                <div class="hex" style="--hex-color:#cc3399;">
+                    <div class="inner">
+                        <h5>VMS</h5>
+                        <p>Vehicle Sales & Inventory</p>
+                    </div>
+                </div>
+
+                <!-- TIMS -->
+                <div class="hex" style="--hex-color:#336699;">
+                    <div class="inner">
+                        <h5>TIMS</h5>
+                        <p>Fleet & Inventory Software</p>
+                    </div>
+                </div>
+
+                <!-- CMS -->
+                <div class="hex" style="--hex-color:#ff6666;">
+                    <div class="inner">
+                        <h5>CMS</h5>
+                        <p>Member’s Club Software</p>
+                    </div>
+                </div>
+
+                <!-- Custom Software -->
+                <div class="hex" style="--hex-color:#99cc33;">
+                    <div class="inner">
+                        <h5>Custom Software</h5>
+                        <p>Web, Mobile & Desktop Apps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="hex">
@@ -340,23 +244,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        // Highlight active nav link on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navbar .nav-link');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (pageYOffset >= sectionTop) current = section.getAttribute('id');
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) link.classList.add('active');
-            });
-        });
-    </script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 
 </html>
